@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.xfce.org/panel-plugins/xfce4-systemload-plugin/-/raw/master/icons/16x16/org.xfce.panel.systemload.svg

@@ -1,0 +1,3 @@
+SERVICE=github
+TYPE=svg
+URL=https://raw.githubusercontent.com/LibreOffice/core/refs/heads/master/sysui/desktop/icons/hicolor/16x16/apps/base.svg

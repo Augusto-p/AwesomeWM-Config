@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.xfce.org/apps/xfce4-terminal/-/raw/master/icons/16x16/org.xfce.terminal-settings.svg

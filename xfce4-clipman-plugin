@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.xfce.org/panel-plugins/xfce4-clipman-plugin/-/raw/master/data/icons/16x16/xfce4-clipman-plugin.svg

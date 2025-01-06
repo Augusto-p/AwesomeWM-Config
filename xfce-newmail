@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.xfce.org/panel-plugins/xfce4-mailwatch-plugin/-/raw/master/icons/scalable/xfce-newmail.svg

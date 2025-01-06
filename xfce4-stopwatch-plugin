@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.xfce.org/panel-plugins/xfce4-stopwatch-plugin/-/raw/master/icons/scalable/xfce4-stopwatch-plugin.svg
