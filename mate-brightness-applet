@@ -1,0 +1,3 @@
+SERVICE=github
+TYPE=svg
+URL=https://raw.githubusercontent.com/mate-desktop/mate-power-manager/refs/heads/master/data/icons/scalable/apps/mate-brightness-applet.svg

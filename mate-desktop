@@ -1,0 +1,3 @@
+SERVICE=github
+TYPE=svg
+URL=https://raw.githubusercontent.com/mate-desktop/mate-desktop/refs/heads/master/icons/scalable/apps/mate-desktop.svg

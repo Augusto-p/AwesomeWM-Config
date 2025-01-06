@@ -1,0 +1,3 @@
+SERVICE=github
+TYPE=svg
+URL=https://raw.githubusercontent.com/lxqt/lxqt-config/refs/heads/master/lxqt-config-brightness/icons/brightnesssettings.svg
