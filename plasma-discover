@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg?ref_type=heads
+URL=https://invent.kde.org/plasma/discover/-/raw/master/discover/icons/sc-apps-plasmadiscover.svg

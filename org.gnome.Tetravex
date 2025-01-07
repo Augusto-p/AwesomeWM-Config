@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg?ref_type=heads
+URL=https://gitlab.gnome.org/GNOME/gnome-tetravex/-/raw/master/data/icons/hicolor/scalable/org.gnome.Tetravex.svg

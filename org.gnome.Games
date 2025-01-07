@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg?ref_type=heads
+URL=https://gitlab.gnome.org/Archive/gnome-games/-/raw/master/data/icons/scalable/apps/org.gnome.Games.svg

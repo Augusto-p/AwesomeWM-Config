@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/gnome-panel/-/raw/master/data/icons/scalable/gnome-panel.svg

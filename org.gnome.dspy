@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg?ref_type=heads
+URL=https://gitlab.gnome.org/GNOME/d-spy/-/raw/main/data/icons/hicolor/dspy.svg

@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/gnome-subtitles/-/raw/master/data/gnome-subtitles.svg

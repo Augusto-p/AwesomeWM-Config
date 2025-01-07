@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/devhelp/-/raw/main/docs/reference/devhelp.svg
