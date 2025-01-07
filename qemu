@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/qemu-team/qemu/-/raw/master/ui/icons/qemu.svg

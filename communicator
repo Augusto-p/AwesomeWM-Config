@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/maui/maui-communicator/-/raw/master/src/assets/communicator.svg

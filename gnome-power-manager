@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://gitlab.gnome.org/jadahl/gnome-control-center/-/raw/master/panels/power/icons/16x16/gnome-power-manager.png

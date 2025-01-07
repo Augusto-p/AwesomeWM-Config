@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/debian-gis-team/josm/-/raw/master/native/linux/latest/usr/share/icons/hicolor/scalable/apps/org.openstreetmap.josm-latest.svg

@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/office/skrooge/-/raw/master/skrooge/icons_hicolor/sc-apps-skrooge.svgz

@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/graphics/washipad/-/raw/master/src/icons/sc-apps-washipad.svgz

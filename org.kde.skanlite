@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/graphics/skanlite/-/raw/master/sc-apps-org.kde.skanlite.svg

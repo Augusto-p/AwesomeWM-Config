@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/debian/rednotebook/-/raw/master/rednotebook/images/rednotebook-icon/rednotebook.svg

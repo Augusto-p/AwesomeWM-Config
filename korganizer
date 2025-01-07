@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/pim/korganizer/-/raw/master/src/pixmaps/sc-apps-korganizer.svg

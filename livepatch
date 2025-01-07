@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/pkgutopia-team/software-properties/-/raw/debian/master/data/icons/16x16/apps/livepatch.svg

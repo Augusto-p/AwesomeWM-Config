@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.freedesktop.org/gstreamer/gstreamer/-/raw/main/subprojects/gst-devtools/debug-viewer/data/gst-debug-viewer.svg

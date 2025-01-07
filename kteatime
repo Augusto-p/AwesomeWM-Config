@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/utilities/kteatime/-/raw/master/data/icons/sc-apps-kteatime.svgz

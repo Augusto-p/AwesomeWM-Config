@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/loisspitz/qrca/-/raw/master/org.kde.qrca.svg

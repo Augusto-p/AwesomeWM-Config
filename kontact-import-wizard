@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/pim/akonadi-import-wizard/-/raw/master/src/icons/hisc-apps-kontact-import-wizard.svgz

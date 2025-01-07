@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://salsa.debian.org/dskoll/remind/-/raw/master/resources/tkremind.png

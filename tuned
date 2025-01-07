@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/debian/tuned/-/raw/debian/unstable/icons/tuned.svg

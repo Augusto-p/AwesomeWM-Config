@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/pascal-team/castle-game-engine/-/raw/master/doc/pasdoc/logo/castle_game_engine_icon.svg

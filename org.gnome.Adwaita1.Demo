@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/g.willems/libadwaita/-/raw/main/demo/data/org.gnome.Adwaita1.Demo.svg

@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/education/kbruch/-/raw/master/src/sc-apps-kbruch.svgz

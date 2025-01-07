@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/pim/akonadiconsole/-/raw/master/src/icons/akonadiconsole.svgz

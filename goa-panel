@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://gitlab.gnome.org/jadahl/gnome-control-center/-/raw/master/panels/online-accounts/icons/16x16/goa-panel.png

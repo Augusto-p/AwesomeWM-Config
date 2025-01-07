@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/office/kile/-/raw/master/src/data/icons/sc-apps-kile.svg

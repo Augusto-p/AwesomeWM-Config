@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/swilmet/enter-tex/-/raw/main/data/icons/org.gnome.enter_tex.svg

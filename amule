@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://salsa.debian.org/debian/amule/-/raw/master/amule.png

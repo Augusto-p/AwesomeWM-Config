@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/rhythmbox/-/raw/master/data/icons/hicolor/scalable/apps/org.gnome.Rhythmbox3.svg

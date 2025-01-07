@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://gitlab.gnome.org/GNOME/network-manager-applet/-/raw/main/icons/48/nm-device-wireless.png

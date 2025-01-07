@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://invent.kde.org/qt/qt-creator/qt-creator/-/raw/master/dist/branding/qtdesignstudio/images/logo/128/QtProject-qtdesignstudio.png

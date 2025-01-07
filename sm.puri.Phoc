@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/guidog/phoc/-/raw/main/data/icons/sm.puri.Phoc.svg

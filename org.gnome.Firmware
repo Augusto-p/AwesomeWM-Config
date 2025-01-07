@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/msandova/gnome-firmware-updater/-/raw/master/data/icons/org.gnome.Firmware.svg

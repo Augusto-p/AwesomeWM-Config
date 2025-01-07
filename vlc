@@ -1,0 +1,3 @@
+SERVICE=github
+TYPE=png
+URL=https://raw.githubusercontent.com/videolan/vlc/refs/heads/master/share/icons/128x128/vlc.png

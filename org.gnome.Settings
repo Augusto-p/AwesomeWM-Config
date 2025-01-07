@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/felipeborges/gnome-control-center/-/raw/c9s/data/icons/hicolor/scalable/apps/org.gnome.Settings.svg

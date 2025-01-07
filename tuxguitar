@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://salsa.debian.org/helger/tuxguitar/-/raw/master/desktop/build-scripts/common-resources/common-linux/share/pixmaps/tuxguitar.png

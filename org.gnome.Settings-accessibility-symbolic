@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/gnome-control-center/-/raw/main/panels/universal-access/icons/scalable/org.gnome.Settings-accessibility-symbolic.svg

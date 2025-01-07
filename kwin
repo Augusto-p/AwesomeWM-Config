@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/plasma/kwin/-/raw/master/data/icons/sc-apps-kwin.svgz

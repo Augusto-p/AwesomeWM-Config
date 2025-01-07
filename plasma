@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/plasma/plasma-workspace/-/raw/master/lookandfeel/org.kde.breeze/contents/splash/images/plasma.svgz

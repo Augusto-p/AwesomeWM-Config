@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/gtk/-/raw/main/demos/gtk-demo/data/scalable/apps/org.gtk.Demo4.svg

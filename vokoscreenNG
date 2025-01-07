@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://salsa.debian.org/debian/vokoscreen-ng/-/raw/debian/master/src/applications/vokoscreenNG.png

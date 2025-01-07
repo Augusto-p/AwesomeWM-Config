@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/office/calligraplan/-/raw/master/src/workpackage/icons/sc-apps-calligraplanwork.svgz

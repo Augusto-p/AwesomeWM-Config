@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://invent.kde.org/sdk/heaptrack/-/raw/master/src/analyze/gui/128-apps-heaptrack.png

@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/sdk/kde-dev-utils/-/raw/master/kuiviewer/sc-apps-kuiviewer.svg

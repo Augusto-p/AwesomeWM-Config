@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/ina/FeedReader/-/raw/master/data/application-icons/hicolor/128x128/apps/org.gnome.FeedReader.svg

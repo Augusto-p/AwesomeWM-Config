@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/utilities/kate/-/raw/master/apps/kate/icons/unix/sc-apps-kate.svg

@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://salsa.debian.org/Benjamin_Loison/openssh/-/raw/master/debian/ssh-askpass-gnome.png

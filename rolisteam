@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/rolisteam/rolisteam-packaging/-/raw/master/rolisteam/flatpak/org.rolisteam.rolisteam.svg

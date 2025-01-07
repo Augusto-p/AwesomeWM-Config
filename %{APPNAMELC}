@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/sdk/kapptemplate/-/raw/master/src/templates/C++/kde-frameworks6/icons/sc-apps-%{APPNAMELC}.svgz

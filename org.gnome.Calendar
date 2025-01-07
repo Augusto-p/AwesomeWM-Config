@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/gnome-calendar/-/raw/main/data/icons/hicolor/scalable/apps/org.gnome.Calendar.svg

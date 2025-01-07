@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/education/rkward/-/raw/master/rkward/icons/app-icon/sc-apps-rkward.svgz

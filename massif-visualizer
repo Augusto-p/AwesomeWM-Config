@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/debian/massif-visualizer/-/raw/master/pics/hicolor/sc-apps-massif-visualizer.svg

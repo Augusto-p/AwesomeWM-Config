@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/graphics/kst-plot/-/raw/master/src/images/svg_icons/application-x-kst.svg

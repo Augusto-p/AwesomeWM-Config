@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/network/krdc/-/raw/master/sc-apps-krdc.svg

@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/office/calligra/-/raw/master/sheets/data/templates/Business/sc-actions-template_balancesheet.svgz

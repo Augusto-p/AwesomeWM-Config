@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/network/falkon/-/raw/master/linux/hicolor/sc-apps-falkon.svg

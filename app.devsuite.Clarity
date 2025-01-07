@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/chergert/clarity/-/raw/main/data/icons/hicolor/scalable/apps/app.devsuite.Clarity.svg

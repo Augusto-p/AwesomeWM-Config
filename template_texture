@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://invent.kde.org/graphics/krita/-/raw/master/krita/data/templates/texture/dark_template_texture.png

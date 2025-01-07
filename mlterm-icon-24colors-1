@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://salsa.debian.org/debian/mlterm/-/raw/master/contrib/icon/mlterm-icon-24colors-1.png

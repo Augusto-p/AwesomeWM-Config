@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/debian/conky/-/raw/master/data/logo/conky-logomark-violet.svg

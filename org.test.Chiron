@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://gitlab.gnome.org/GNOME/gnome-software/-/raw/main/plugins/flatpak/tests/app-extension/org.test.Chiron/files/share/icons/hicolor/128x128/apps/org.test.Chiron.png

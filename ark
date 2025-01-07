@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/utilities/ark/-/raw/master/app/icons/sc-apps-ark.svgz

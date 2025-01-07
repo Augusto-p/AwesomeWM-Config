@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/gnome-power-manager/-/raw/master/data/icons/hicolor/scalable/org.gnome.PowerStats.svg

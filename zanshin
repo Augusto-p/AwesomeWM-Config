@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/pim/zanshin/-/raw/master/src/icons/sc-apps-zanshin.svgz

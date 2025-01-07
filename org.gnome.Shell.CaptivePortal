@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/gnome-shell/-/raw/main/data/icons/hicolor/scalable/apps/org.gnome.Shell.CaptivePortal.svg

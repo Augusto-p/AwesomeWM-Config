@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://salsa.debian.org/multimedia-team/snd/-/raw/main/debian/snd.png

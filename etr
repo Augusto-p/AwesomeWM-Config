@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/games-team/extremetuxracer/-/raw/master/resources/etr.svg

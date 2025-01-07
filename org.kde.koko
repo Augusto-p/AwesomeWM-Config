@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/graphics/koko/-/raw/master/icons/org.kde.koko.svg

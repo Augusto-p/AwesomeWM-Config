@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://gitlab.freedesktop.org/libfprint/libfprint/-/raw/master/demo/org.freedesktop.libfprint.Demo.png

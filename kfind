@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/utilities/kfind/-/raw/master/icons/sc-apps-kfind.svgz

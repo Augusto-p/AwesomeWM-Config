@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/michmill/digiKam/-/raw/master/core/data/icons/apps/sc-apps-showfoto.svgz

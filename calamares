@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://salsa.debian.org/qt-kde-team/extras/calamares/-/raw/master/src/modules/packagechooser/images/calamares.png

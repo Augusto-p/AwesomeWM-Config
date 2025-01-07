@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/games/ksudoku/-/raw/master/src/shapes/ksudoku-ksudoku_9x9.svgz

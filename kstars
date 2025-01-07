@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/education/kstars/-/raw/master/kstars/icons/sc-apps-kstars.svgz

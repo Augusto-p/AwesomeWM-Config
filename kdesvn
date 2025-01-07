@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/sdk/kdesvn/-/raw/master/Helperstuff/pic_design/kdesvn.svgz

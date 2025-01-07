@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://salsa.debian.org/Mobian-team/packages/millipixels/-/raw/mobian/data/sm.puri.Millipixels.svg

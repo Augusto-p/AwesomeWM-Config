@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.freedesktop.org/SergioGDR/cups/-/raw/merge-2.4.11/desktop/cups.svg

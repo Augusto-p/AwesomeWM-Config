@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/office/ghostwriter/-/raw/master/resources/icons/sc-apps-ghostwriter.svg

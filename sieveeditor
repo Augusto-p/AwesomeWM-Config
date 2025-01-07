@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/pim/pim-sieve-editor/-/raw/master/src/icons/sc-apps-sieveeditor.svg

@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svgz
+URL=https://invent.kde.org/network/konversation/-/raw/master/data/images/icons/hisc-apps-konversation.svgz

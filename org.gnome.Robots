@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/gnome-robots/-/raw/master/data/icons/hicolor/scalable/org.gnome.Robots.svg

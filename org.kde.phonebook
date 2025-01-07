@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/plasma-mobile/plasma-phonebook/-/raw/master/org.kde.phonebook.svg

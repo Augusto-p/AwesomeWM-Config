@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.freedesktop.org/pulseaudio/pavucontrol/-/raw/master/src/org.pulseaudio.pavucontrol.svg

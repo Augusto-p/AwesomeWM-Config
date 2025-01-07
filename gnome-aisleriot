@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/palob/aisleriot/-/raw/master/data/icons/gnome-aisleriot.svg

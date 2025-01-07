@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/neon/extras/amarok/-/raw/Neon/unstable/src/context/applets/wikipedia/amarok-wikipedia.svg

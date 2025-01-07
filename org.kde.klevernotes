@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/office/klevernotes/-/raw/master/org.kde.klevernotes.svg

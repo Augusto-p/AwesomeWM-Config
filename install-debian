@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=png
+URL=https://salsa.debian.org/live-team/calamares-settings-debian-packaging/-/raw/master/artwork/install-debian.png

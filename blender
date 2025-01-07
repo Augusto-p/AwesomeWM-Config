@@ -1,0 +1,3 @@
+SERVICE=github
+TYPE=svg
+URL=https://raw.githubusercontent.com/blender/blender/refs/heads/main/release/datafiles/icons_svg/blender.svg

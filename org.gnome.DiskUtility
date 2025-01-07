@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.gnome.org/GNOME/gnome-disk-utility/-/raw/main/data/icons/hicolor/scalable/apps/org.gnome.DiskUtility.svg

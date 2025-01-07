@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://invent.kde.org/sdk/kapptemplate/-/raw/master/icons/sc-apps-kapptemplate.svg
