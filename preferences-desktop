@@ -1,3 +1,3 @@
 SERVICE=gitlab
-TYPE=png?ref_type=heads
+TYPE=png
 URL=https://invent.kde.org/plasma/plasma-desktop/-/raw/master/logo.png

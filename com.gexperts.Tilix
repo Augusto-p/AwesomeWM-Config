@@ -1,0 +1,3 @@
+SERVICE=github
+TYPE=svg
+URL=https://raw.githubusercontent.com/gnunn1/tilix/refs/heads/master/data/icons/hicolor/scalable/apps/com.gexperts.Tilix.svg

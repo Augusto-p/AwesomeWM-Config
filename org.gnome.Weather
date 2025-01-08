@@ -1,3 +1,3 @@
 SERVICE=gitlab
-TYPE=svg?ref_type=heads
+TYPE=svg
 URL=https://gitlab.gnome.org/GNOME/gnome-weather/-/raw/main/data/icons/hicolor/scalable/apps/org.gnome.Weather.svg
