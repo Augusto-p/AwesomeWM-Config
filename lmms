@@ -1,0 +1,3 @@
+SERVICE=gitlab
+TYPE=svg
+URL=https://gitlab.com/liushuyu/lmms/-/raw/stable-1.2/cmake/linux/icons/scalable/apps/lmms.svg

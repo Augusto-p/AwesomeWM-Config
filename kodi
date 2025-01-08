@@ -1,0 +1,3 @@
+SERVICE=github
+TYPE=svg
+URL=https://raw.githubusercontent.com/xbmc/xbmc/refs/heads/master/tools/Linux/packaging/media/iconScalable.svg
