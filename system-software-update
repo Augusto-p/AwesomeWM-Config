@@ -1,3 +1,3 @@
-SERVICE=wikimedia
+SERVICE=github
 TYPE=svg
-URL=https://commons.wikimedia.org/wiki/File:Breezeicons-apps-48-system-software-update.svg
+URL=https://github.com/KDE/breeze-icons/raw/master/icons/apps/48/system-software-update.svg

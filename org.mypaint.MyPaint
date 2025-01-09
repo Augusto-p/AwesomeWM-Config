@@ -1,3 +1,3 @@
-SERVICE=wikimedia
+SERVICE=github
 TYPE=svg
-URL=https://commons.wikimedia.org/wiki/File:Mypaint-icon.svg
+URL=https://github.com/mypaint/mypaint/raw/master/desktop/icons/hicolor/scalable/apps/org.mypaint.MyPaint.svg

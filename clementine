@@ -1,3 +1,3 @@
-SERVICE=wikimedia
-TYPE=svg
-URL=https://commons.wikimedia.org/wiki/File:Clementine_logo.svg
+SERVICE=github
+TYPE=png
+URL=https://github.com/clementine-player/Clementine/raw/master/dist/clementine_128.png

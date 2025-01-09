@@ -1,3 +1,3 @@
-SERVICE=wikimedia
+SERVICE=github
 TYPE=svg
-URL=https://commons.wikimedia.org/wiki/File:EmacsIcon.svg
+URL=https://github.com/emacs-mirror/emacs/raw/master/etc/images/icons/hicolor/scalable/apps/emacs.svg

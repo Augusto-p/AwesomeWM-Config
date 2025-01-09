@@ -1,3 +1,3 @@
-SERVICE=wikimedia
+SERVICE=github
 TYPE=svg
-URL=https://commons.wikimedia.org/wiki/File:Media_Viewer_Icon_-_Location.svg
+URL=https://github.com/linuxdeepin/deepin-icon-theme/raw/master/bloom/actions/24/mark-location.svg

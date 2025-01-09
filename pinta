@@ -1,3 +1,3 @@
-SERVICE=wikimedia
+SERVICE=github
 TYPE=svg
-URL=https://commons.wikimedia.org/wiki/File:Applications-graphics.svg
+URL=https://github.com/PintaProject/Pinta/raw/master/Pinta.Resources/icons/hicolor/scalable/apps/pinta.svg
