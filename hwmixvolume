@@ -1,0 +1,3 @@
+SERVICE=branding
+TYPE=svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250110%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250110T034522Z&X-Amz-Expires=300&X-Amz-Signature=742e5122fdba5d09838b0401a4f69f7af66c30b154286cf6fb601a366dc4630b&X-Amz-SignedHeaders=host
+URL=https://github-production-user-asset-6210df.s3.amazonaws.com/4646110/239476240-d32739ce-e50c-45f5-bc89-5f46e1fce06b.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250110%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250110T034522Z&X-Amz-Expires=300&X-Amz-Signature=742e5122fdba5d09838b0401a4f69f7af66c30b154286cf6fb601a366dc4630b&X-Amz-SignedHeaders=host
