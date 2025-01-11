@@ -3,6 +3,7 @@ lock_screen.init()
 
 require("ui.bar")
 require("ui.dashboard")
+require("ui.dock-apps")
 require("ui.decorations")
 require("ui.notifs")
 require("ui.tooltip")

@@ -50,7 +50,10 @@ ruled.client.connect_signal("request::rules", function()
                 "discord",
                 "Spotify",
                 "firefox",
-                "Org.gnome.Nautilus"
+                "org.gnome.Nautilus",
+                "kitty",
+                "rofi"
+                
             },
             type = {
               "splash"
@@ -69,7 +72,7 @@ ruled.client.connect_signal("request::rules", function()
         id = "floating",
         rule_any = {
             instance = {
-                "Devtools", -- Firefox devtools
+                -- "Devtools", -- Firefox devtools
             },
             class = {
                 "Lxappearance",

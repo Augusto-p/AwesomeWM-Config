@@ -37,7 +37,7 @@ awful.screen.connect_for_each_screen(function(s)
             {"File Manager", function() awful.spawn.with_shell(file_manager) end},
             {"Web Browser", function() awful.spawn.with_shell(browser) end},
             {"Music", function() awful.spawn.with_shell(music_client) end},
-            {"AwesomeWM", awesomemenu,  beautiful.awesome_logo},
+            {"AwesomeWM", awesomemenu,  beautiful.Tux},
             {"Power Menu", powermenu}
         }
     })

@@ -48,7 +48,7 @@ awful.keyboard.append_global_keybindings({
             awful.spawn(file_manager)
         end,
         {description = "open file manager", group = "launcher"}),
-        awful.key({modkey}, "w", function()
+        awful.key({modkey}, "b", function()
             awful.spawn.with_shell(browser)
         end,
         {description = "open web browser", group = "launcher"}),
@@ -88,7 +88,7 @@ awful.keyboard.append_global_keybindings({
     end,
     {description = "focus left", group = "client"}),
     awful.key({modkey}, "Right", function()
-        awful.client.focus.bydirection("right")
+        awful.calient.focus.bydirection("right")
         bling.module.flash_focus.flashfocus(client.focus)
     end,
     {description = "focus right", group = "client"}),

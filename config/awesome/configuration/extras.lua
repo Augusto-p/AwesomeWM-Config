@@ -24,7 +24,7 @@ end)
 client.connect_signal("request::manage", function(c)
     -- Add missing icon to client
     if not c.icon then
-        local icon = gears.surface(beautiful.awesome_logo)
+        local icon = gears.surface(beautiful.Tux)
         c.icon = icon._native
         icon:finish()
     end

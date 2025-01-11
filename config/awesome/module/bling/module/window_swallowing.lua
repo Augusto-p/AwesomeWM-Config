@@ -13,7 +13,7 @@ local window_swallowing_activated = false
 -- you might want to add or remove applications here
 local parent_filter_list = beautiful.parent_filter_list
     or beautiful.dont_swallow_classname_list
-    or { "firefox", "Gimp", "Google-chrome" }
+    or { "firefox", "Gimp", "Google-chrome", }
 local child_filter_list = beautiful.child_filter_list
     or beautiful.dont_swallow_classname_list or { }
 

@@ -271,6 +271,29 @@ function helpers.add_hover_cursor(w, hover_cursor)
     end)
 end
 
+function helpers.add_hover_cursor_button(buttom)
+
+    buttom:connect_signal("mouse::enter", function()
+        buttom.backgroundBox.bg = beautiful.xcolor4
+        local w = _G.mouse.current_wibox
+        if w then
+            w.cursor = "hand2"
+        end
+    end)
+
+    buttom:connect_signal("mouse::leave", function()
+        buttom.backgroundBox.bg = beautiful.xcolor0
+        local w = _G.mouse.current_wibox
+        if w then
+            w.cursor = "left_ptr"
+        end
+    end)
+end
+
+
+
+
+
 -- Tag back and forth:
 -- If you try to focus the tag you are already at, go back to the previous tag.
 -- Useful for quick switching after for example checking an incoming chat

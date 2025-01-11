@@ -33,11 +33,11 @@ These dotfiles are made with love, for sure.
 | ---------- | ----------------- |
 | WM         | awesome           |
 | OS         | arch linux        |
-| Terminal   | alacritty         |
+| Terminal   | kitty             |
 | Shell      | zsh               |
-| Editor     | neovim / vscode   |
+| Editor     | vscode            |
 | Compositor | picom             |
-| Launcher   | rofi              |
+| Launcher   | custom            |
 
 <h2></h2><br>
 
@@ -52,13 +52,20 @@ These dotfiles are made with love, for sure.
 
       - **Arch Linux** (and all Arch-based distributions)
 
-            *Assuming your AUR helper is* `yay`
+            ```shell
+            sudo pacman -Sy luarocks networckmanager\
+            sudo luarocks lsqlite3 
+            ```
+
+
+
+            *Assuming your AUR helper is* `paru`
 
             ```shell
-            yay -Sy awesome-git picom-git alacritty rofi todo-bin acpi acpid \
+            paru -Sy awesome-git picom-git alacritty rofi todo-bin acpi acpid \
             wireless_tools jq inotify-tools polkit-gnome xdotool xclip maim \
-            brightnessctl alsa-utils alsa-tools pulseaudio lm_sensors \
-            mpd mpc mpdris2 ncmpcpp playerctl --needed 
+            brightnessctl alsa-utils alsa-tools  lm_sensors mpd mpc \
+            mpdris2 ncmpcpp playerctl --needed 
             ```
 
       + Services
@@ -89,8 +96,9 @@ These dotfiles are made with love, for sure.
       > Clone this repository
 
       ```shell
-      git clone https://github.com/rxyhn/dotfiles.git
-      cd dotfiles
+      git clone https://github.com/Augusto-p/AwesomeWM-Config.git
+      cd AwesomeWM-Config
+
       ```
 
       > Copy config and binaries files
@@ -105,6 +113,8 @@ These dotfiles are made with love, for sure.
 
       ```shell
       export TODO_PATH="path/to/todo"
+      chmod 755 ~/.config/awesome/ui/dock-apps/Desktops_Manager
+      ~/.config/awesome/ui/dock-apps/Desktops_Manager "$HOME/.config/awesome/Awesome.DB" "$HOME/.config/awesome/theme/AwesomeIcons/" "$HOME/.config/awesome/theme/assets/app.svg" "Augusto-p" "AwesomeWM-Config" "Reset"
       ```
 
    4. Configure stuff
@@ -218,7 +228,7 @@ also with <kbd>alt, shift, and ctrl</kbd>
    - **Credits**
       + [ner0z](https://github.com/ner0z)
 
-   - **Special thanks to**
+   - **Special thanks    to**
       + [ChocolateBread799](https://github.com/ChocolateBread799)
       + [JavaCafe01](https://github.com/JavaCafe01)
 

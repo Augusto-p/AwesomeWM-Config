@@ -16,7 +16,7 @@ local helpers = require("helpers")
 ---------
 
 local time_hour = wibox.widget{
-    font = beautiful.font_name .. "bold 48",
+    font = beautiful.font_name .. "bold 26",
     format = helpers.colorize_text("%H", "#cfcdcc"),
     align = "center",
     valign = "center",
@@ -24,8 +24,16 @@ local time_hour = wibox.widget{
 }
 
 local time_min = wibox.widget{
-    font = beautiful.font_name .. "bold 48",
-    format = "%M",
+    font = beautiful.font_name .. "bold 26",
+    format = helpers.colorize_text("%M", "#cfcdcc"),
+    align = "center",
+    valign = "center",
+    widget = wibox.widget.textclock
+}
+
+local time_sep = wibox.widget{
+    font = beautiful.font_name .. "bold 28",
+    format = helpers.colorize_text(":", "#cfcdcc"),
     align = "center",
     valign = "center",
     widget = wibox.widget.textclock
@@ -33,8 +41,9 @@ local time_min = wibox.widget{
 
 local time = wibox.widget{
     time_hour,
+    time_sep,
     time_min,
-    spacing = dpi(25),
+    spacing = dpi(5),
     widget = wibox.layout.fixed.horizontal
 }
 

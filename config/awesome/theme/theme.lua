@@ -17,7 +17,10 @@ local helpers = require("helpers")
 -- Theme
 ----------
 
--- Load ~/.Xresources colors
+
+-- colors
+----------
+-- Load ~/.Xresources
 theme.xbackground = xrdb.background
 theme.xforeground = xrdb.foreground
 theme.xcolor0 = xrdb.color0
@@ -36,19 +39,99 @@ theme.xcolor12 = xrdb.color12
 theme.xcolor13 = xrdb.color13
 theme.xcolor14 = xrdb.color14
 theme.xcolor15 = xrdb.color15
+-- Aditionals
 theme.darker_bg = "#0a1419"
 theme.lighter_bg = "#162026"
 theme.dashboard_fg = "#666c79"
 theme.transparent = "#00000000"
-
--- PFP
-theme.pfp = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/pfp.png")
+theme.bateryacent = "#6791c9"
+-- Power Menu
+theme.color_Poweroff = "#8f0000"
+theme.color_Reboot = "#bd7e02"
+theme.color_Lock = "#087485"
+theme.color_Logout = "#088542"
+-- Power Menu Hover
+theme.color_hover_Poweroff = "#4d0101"
+theme.color_hover_Reboot = "#634201"
+theme.color_hover_Lock = "#04434d"
+theme.color_hover_Logout = "#054d26"
+-- Network
+theme.color_Wifi_Connect = "#387050"
+theme.color_Wifi_Error = "#702828"
+theme.color_Wifi_Save = "#6b6b6b"
+-- Background Colors
+theme.bg_dark = theme.darker_bg
+theme.bg_normal = theme.xbackground
+theme.bg_focus = theme.xbackground
+theme.bg_urgent = theme.xbackground
+theme.bg_minimize = theme.xbackground
+theme.bg_secondary = theme.darker_bg
+theme.bg_accent = theme.lighter_bg
+-- Foreground Colors
+theme.fg_normal = theme.xforeground
+theme.fg_focus = theme.xforeground
+theme.fg_urgent = theme.xcolor1
+theme.fg_minimize = theme.xcolor0
 
 -- Wallpaper
-theme.wallpaper = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/bg.png")
+----------
+theme.wallpaper = gfs.get_configuration_dir() .. "theme/assets/bg.png"
 
--- Awesome Logo
-theme.awesome_logo = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/awesome.png")
+-- PFP
+----------
+theme.pfp = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/pfp.png")
+
+-- Tux
+--------
+theme.Tux = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/Tux.png")
+
+-- Icons
+----------
+theme.dock_apps_icon = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/dock_apps_icon.svg")
+theme.view_icon = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/view.svg")
+theme.hidden_icon = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/hidden.svg")
+
+-- Power Menu
+theme.icon_Poweroff = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Power_Menu/Poweroff.svg")
+theme.icon_Reboot = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Power_Menu/Reboot.svg")
+theme.icon_Lock = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Power_Menu/Lock.svg")
+theme.icon_Logout = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Power_Menu/Logout.svg")
+-- Network
+theme.icon_Ethernet = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Ethernet.svg")
+theme.icon_Offline = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Offline.svg")
+theme.icon_Wifi_off = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Wi-Fi/Off.svg")
+theme.icon_Wifi_0 = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Wi-Fi/0.svg")
+theme.icon_Wifi_1 = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Wi-Fi/1.svg")
+theme.icon_Wifi_2 = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Wi-Fi/2.svg")
+theme.icon_Wifi_3 = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Wi-Fi/3.svg")
+theme.icon_Wifi_4 = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Wi-Fi/4.svg")
+theme.icon_Refresh = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Refresh.svg")
+theme.icon_Link = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Link.svg")
+theme.icon_Unlink = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Unlink.svg")
+theme.icon_share = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Share.svg")
+theme.icon_Unlocked = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Unlocked.svg")
+theme.icon_Unlocked_Password = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Unlocked_Password.svg")
+theme.icon_Locked_Password = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Network/Locked_Password.svg")
+-- Mini Apps Dock
+theme.icon_rubber_duck = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Mini_Apps_Dock/rubber_duck.svg")
+theme.icon_Owl = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Owl.svg")
+theme.icon_File_Explorer = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/File_Explorer.svg")
+theme.icon_Visual_Studio_Code = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/Visual_Studio_Code.svg")
+
+-- Paths
+--------
+theme.path_QR = gfs.get_configuration_dir() .. "ui/wifi-center/Share/QR.png"
+theme.path_app_default_icon =  gfs.get_configuration_dir() .. "theme/assets/icons/app_default.svg"
+
+-- APPS Dock
+--------
+theme.Apps_Dock_Database = gfs.get_configuration_dir() .. "Awesome.DB"
+theme.Apps_Dock_Desktops_Script = gfs.get_configuration_dir() .. "ui/dock-apps/Desktops_Manager"
+theme.Apps_Dock_Icons_Folder = gfs.get_configuration_dir() .. "theme/AwesomeIcons/"
+theme.Apps_Dock_Max_Display_APPS = 16
+theme.Apps_Dock_Icons_GITHUB_USER = "Augusto-p"
+theme.Apps_Dock_Icons_GITHUB_REPO = "AwesomeWM-Config"
+
 
 -- Notifications bell icon
 theme.notification_bell_icon = gears.surface.load_uncached(gfs.get_configuration_dir() .. "theme/assets/icons/notification-bell.png")
@@ -67,21 +150,6 @@ theme.font = theme.font_name .. "8"
 theme.icon_font_name = "Material Icons "
 theme.icon_font = theme.icon_font_name .. "18"
 theme.font_taglist = theme.icon_font_name .. "13"
-
--- Background Colors
-theme.bg_dark = theme.darker_bg
-theme.bg_normal = theme.xbackground
-theme.bg_focus = theme.xbackground
-theme.bg_urgent = theme.xbackground
-theme.bg_minimize = theme.xbackground
-theme.bg_secondary = theme.darker_bg
-theme.bg_accent = theme.lighter_bg
-
--- Foreground Colors
-theme.fg_normal = theme.xforeground
-theme.fg_focus = theme.xforeground
-theme.fg_urgent = theme.xcolor1
-theme.fg_minimize = theme.xcolor0
 
 -- Borders
 theme.border_width = dpi(0)
@@ -129,7 +197,7 @@ theme.taglist_shape_volatile = helpers.rrect(theme.bar_radius)
 
 -- Titlebars
 theme.titlebar_enabled = true
-theme.titlebar_size = dpi(45)
+theme.titlebar_size = dpi(31)
 theme.titlebar_unfocused = theme.xcolor0
 
 -- Pop up notifications
@@ -234,7 +302,7 @@ theme.notif_center_box_radius = theme.notif_center_radius / 2
 
 -- Swallowing
 theme.dont_swallow_classname_list = {
-    "firefox", "gimp", "Google-chrome", "Thunar"
+    "firefox", "gimp", "Google-chrome", "Thunar", 
 }
 
 -- Layout Machi

@@ -4,7 +4,7 @@
 |  -  |  | |  |  ___|___  |  |  |  | |  |  ___|
 |__|__|_______|_____|_____|_____|__|_|__|_____|
                ~ AestheticArch ~
-                     rxyhn
+                     Null
 --]]
 pcall(require, "luarocks.loader")
 
@@ -18,15 +18,19 @@ dpi = beautiful.xresources.apply_dpi
 beautiful.init(gfs.get_configuration_dir() .. "theme/theme.lua")
 
 -- Default Applications
-terminal = "alacritty"
-editor = terminal .. " -e " .. os.getenv("EDITOR")
+terminal = "kitty"
+editor = "code"
 vscode = "code"
 browser = "firefox"
-launcher = "rofi -show drun -theme " .. os.getenv("HOME") .. "/.config/awesome/theme/rofi.rasi"
+launcher = "rofi -show drun -show-icons -b "
 file_manager = "nautilus"
 music_client = terminal .. " --class music -e ncmpcpp"
 
 -- Weather API
+weather_city = "Capurro"
+weather_state = "San José"
+weather_country = "Uruguay"
+
 openweathermap_key = "" -- API Key
 openweathermap_city_id = "" -- City ID
 weather_units = "metric" -- Unit
@@ -49,3 +53,7 @@ require("ui")
 collectgarbage("setpause", 110)
 collectgarbage("setstepmul", 1000)
 
+-- Wallpaper
+-- local wallpaper_cmd="feh --bg-fill /home/augusto/Pictures/Firewatch+Tower.jpg"
+local wallpaper_cmd = string.format("feh --bg-fill %s", beautiful.wallpaper)
+os.execute(wallpaper_cmd)

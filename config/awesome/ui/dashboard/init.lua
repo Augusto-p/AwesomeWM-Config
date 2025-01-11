@@ -73,22 +73,15 @@ end
 
 -- Widget
 local profile = require("ui.dashboard.profile")
-local music = require("ui.dashboard.music")
-local media = require("ui.dashboard.mediakeys")
 local time = require("ui.dashboard.time")
 local date = require("ui.dashboard.date")
-local todo = require("ui.dashboard.todo")
 local weather = require("ui.dashboard.weather")
-local stats = require("ui.dashboard.stats")
-local notifs = require("ui.dashboard.notifs")
+local pb = require("ui.dashboard.pb")
 
 
-local time_boxed = create_boxed_widget(centered_widget(time), dpi(260), dpi(95), beautiful.transparent)
+local time_boxed = create_boxed_widget(centered_widget(time), dpi(260), dpi(50), beautiful.dashboard_box_bg)
 local date_boxed = create_boxed_widget(date, dpi(120), dpi(50), beautiful.dashboard_box_bg)
-local todo_boxed = create_boxed_widget(todo, dpi(120), dpi(120), beautiful.dashboard_box_bg)
 local weather_boxed = create_boxed_widget(weather, dpi(120), dpi(120), beautiful.dashboard_box_bg)
-local stats_boxed = create_boxed_widget(stats, dpi(120), dpi(190), beautiful.dashboard_box_bg)
-local notifs_boxed = create_boxed_widget(notifs, dpi(260), dpi(190), beautiful.dashboard_box_bg)
 
 -- dashboard
 dashboard = wibox({
@@ -112,15 +105,6 @@ local slide = rubato.timed{
     subscribed = function(pos) dashboard.x = pos end
 }
 
-local slide_strut = rubato.timed{
-    pos = dpi(0),
-    rate = 60,
-    intro = 0.3,
-    duration = 0.8,
-    easing = rubato.quadratic,
-    awestore_compat = true,
-    subscribed = function(width) dashboard:struts{left = width, right = 0, top = 0, bottom = 0} end
-}
 
 local dashboard_status = false
 
@@ -133,13 +117,11 @@ end)
 dashboard_show = function()
     dashboard.visible = true
     slide:set(100)
-    slide_strut:set(375)
     dashboard_status = false
 end
 
 dashboard_hide = function()
     slide:set(-375)
-    slide_strut:set(0)
     dashboard_status = true
 end
 
@@ -159,30 +141,29 @@ dashboard:setup {
                 {
                     {
                         profile,
-                        stats_boxed,
-                        layout = wibox.layout.fixed.vertical
-                    },
-                    {
-                        date_boxed,
-                        todo_boxed,
                         weather_boxed,
                         layout = wibox.layout.fixed.vertical
                     },
+                    {
+                        time_boxed,
+                        date_boxed,
+
+                        layout = wibox.layout.fixed.vertical
+                    },
                     layout = wibox.layout.fixed.horizontal
                 },
-                {
-                    music,
-                    media,
-                    layout = wibox.layout.fixed.horizontal
-                },
-                notifs_boxed,
-                layout = wibox.layout.fixed.vertical
+                nil,
+                pb,
+                forced_height = screen_height - dpi(50),
+                layout = wibox.layout.align.vertical
                 },
                 expand = "none",
+                forced_height = screen_height - dpi(50),
                 layout = wibox.layout.align.horizontal
             },
             margins = dpi(10),
-            widget = wibox.container.margin
+            widget = wibox.container.margin,
+            forced_height = screen_height - dpi(50)
         },
         bg = beautiful.xbackground,
         shape = helpers.rrect(beautiful.dashboard_radius),
