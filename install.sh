@@ -1,187 +1,217 @@
 #!/bin/bash
-set -euo pipefail  # Exit on error, unset variables, or failed pipes
+# Quiet installer with steps, spinner+progress bar, and strict error handling
+
+set -euo pipefail
 
 # =======================
-# Configuration
+# UI / Progress helpers
 # =======================
-TOTAL_STEPS=15     # Total number of steps
-CURRENT_STEP=0     # Counter for completed steps
+TOTAL_STEPS=18
+CURRENT_STEP=0
 
-# -----------------------
-# Functions
-# -----------------------
-
-# Display progress step
 step() {
-    ((CURRENT_STEP++))
-    local msg="$1"
-    echo -e "\n[${CURRENT_STEP}/${TOTAL_STEPS}] ➜ $msg..."
+  ((CURRENT_STEP++))
+  echo -e "\n[${CURRENT_STEP}/${TOTAL_STEPS}] ➜ $1..."
 }
 
-# Mark step as completed
-success() {
-    echo "    ✔️ $1 completed"
+ok() { echo "    ✔️ $1"; }
+
+# Draws a fake progress bar while PID is running, then waits and checks exit code
+progress_wait() {
+  local pid="$1"
+  local width=28
+  local i=0
+  local spin='|/-\'
+  local s=0
+
+  while kill -0 "$pid" 2>/dev/null; do
+    i=$(( (i + 1) % (width + 1) ))
+    s=$(( (s + 1) % 4 ))
+    printf "\r    [%c] [%-*s]" "${spin:$s:1}" "$width" "$(printf "%${i}s" | tr ' ' '#')"
+    sleep 0.1
+  done
+
+  # Ensure we catch the exit code
+  wait "$pid"
+  local rc=$?
+  if [[ $rc -ne 0 ]]; then
+    printf "\r    [x] %-*s\n" "$width" ""
+    echo "    ❌ Failed (exit $rc)"
+    exit "$rc"
+  fi
+  printf "\r    [✓] [%-*s]\n" "$width" "$(printf "%${width}s" | tr ' ' '#')"
 }
 
-# Spinner for long-running commands
-spinner() {
-    local pid=$!
-    local spin='|/-\'
-    local i=0
-    while kill -0 $pid 2>/dev/null; do
-        i=$(( (i+1) %4 ))
-        printf "\r    [%c] " "${spin:$i:1}"
-        sleep 0.1
-    done
-    printf "\r    ✔️ Done\n"
+# Run a command silently in background and show progress bar until it ends
+run_q() {
+  # Usage: run_q "desc" "command..."
+  step "$1"
+  bash -c "$2" > /dev/null 2>&1 &
+  local pid=$!
+  progress_wait "$pid"
+  ok "$1 completed"
 }
 
 # =======================
-# Start Script
+# Pre-flight
 # =======================
+
 folder=$(pwd)
-user=$USER
+user="$USER"
 
-# -----------------------
-# Ask for user input
-# -----------------------
+# Ask for inputs (no logs)
 read -rp "KEYMAP: " keymap
+read -rp "Enter your weather city (default: Francorchamps): " weather_city;   weather_city=${weather_city:-Francorchamps}
+read -rp "Enter your weather state (default: Liege): " weather_state;         weather_state=${weather_state:-Liege}
+read -rp "Enter your weather country (default: Belgium): " weather_country;   weather_country=${weather_country:-Belgium}
+read -rp "Enter your weather language (default: en): " weather_lang;          weather_lang=${weather_lang:-en}
+read -rp "Enter your weather units (metric/imperial, default: metric): " weather_units; weather_units=${weather_units:-metric}
 
-read -rp "Enter your weather city (default: Francorchamps): " weather_city
-weather_city=${weather_city:-Francorchamps}
+# Cache sudo credentials and keep them alive (quiet)
+step "Validating sudo and starting keep-alive"
+sudo -v
+( while true; do sleep 60; sudo -n true || exit; done ) & SUDO_KEEPALIVE_PID=$!
+trap '[[ -n "${SUDO_KEEPALIVE_PID:-}" ]] && kill "$SUDO_KEEPALIVE_PID" 2>/dev/null || true' EXIT
+ok "Sudo session active"
 
-read -rp "Enter your weather state (default: Liege): " weather_state
-weather_state=${weather_state:-Liege}
+# Ensure target dirs exist (avoid copy failures)
+mkdir -p "$HOME/.local/bin" "$HOME/.config"
 
-read -rp "Enter your weather country (default: Belgium): " weather_country
-weather_country=${weather_country:-Belgium}
+# =======================
+# System base & keyring
+# =======================
+run_q "System update and keyring refresh" \
+  "sudo pacman -Sy --noconfirm archlinux-keyring && sudo pacman -Syu --noconfirm"
 
-read -rp "Enter your weather language (default: en): " weather_lang
-weather_lang=${weather_lang:-en}
+run_q "Installing base tools (git, base-devel, etc.)" \
+  "sudo pacman -S --needed --noconfirm base-devel git luarocks networkmanager xorg-server gdm firefox zsh unzip wget"
 
-read -rp "Enter your weather units (metric/imperial, default: metric): " weather_units
-weather_units=${weather_units:-metric}
-
-# -----------------------
-# Steps with progress
-# -----------------------
-
-# Install paru
+# =======================
+# Install paru (AUR helper)
+# =======================
 step "Installing paru (AUR helper)"
-cd ~
-if [ ! -d "paru-bin" ]; then
-    git clone https://aur.archlinux.org/paru-bin.git > /dev/null 2>&1 &
-    spinner
+if [[ ! -d "$HOME/paru-bin" ]]; then
+  bash -c "git clone https://aur.archlinux.org/paru-bin.git \"$HOME/paru-bin\"" > /dev/null 2>&1 &
+  progress_wait $!
 fi
-cd paru-bin
-(makepkg -si --noconfirm > /dev/null 2>&1) &
-spinner
-cd "$folder"
-success "Paru installed"
+bash -c "cd \"$HOME/paru-bin\" && makepkg -si --noconfirm" > /dev/null 2>&1 &
+progress_wait $!
+ok "Paru installed"
 
-# Install base packages with pacman
-step "Installing base packages with pacman"
-(sudo pacman -Sy --noconfirm luarocks networkmanager xorg-server gdm firefox zsh unzip wget > /dev/null 2>&1) &
-spinner
-success "Base packages installed"
+# =======================
+# Packages via pacman/paru
+# =======================
+run_q "Installing extra packages with paru" \
+  "paru -S --noconfirm awesome-git picom-git kitty todo-bin feh neofetch acpi acpid wireless_tools jq inotify-tools polkit-gnome xdotool xclip maim brightnessctl alsa-utils alsa-tools lm_sensors mpd mpc mpdris2 ncmpcpp playerctl"
 
-# Change shell to zsh
-step "Changing default shell to zsh"
-sudo usermod -s /bin/zsh "$user"
-sudo usermod -s /bin/zsh root
-success "Shell changed to zsh"
+# =======================
+# Shell setup
+# =======================
+run_q "Switching default shell to zsh (user & root)" \
+  "sudo usermod -s /bin/zsh \"$user\" && sudo usermod -s /bin/zsh root"
 
-# Install Lua modules
+# =======================
+# Lua modules (quiet)
+# =======================
 step "Installing Lua modules"
-for mod in ldoc "lsqlite3 0.9.5-1" luasocket luasec lua-cjson; do
-    (sudo luarocks install --force $mod > /dev/null 2>&1) &
-    spinner
+for mod in "ldoc" "lsqlite3 0.9.5-1" "luasocket" "luasec" "lua-cjson"; do
+  bash -c "sudo luarocks install --force $mod" > /dev/null 2>&1 &
+  progress_wait $!
 done
-success "Lua modules installed"
+ok "Lua modules installed"
 
-# Install packages with paru
-step "Installing extra packages with paru"
-(paru -Sy --noconfirm awesome-git picom-git kitty todo-bin feh neofetch acpi acpid \
-    wireless_tools jq inotify-tools polkit-gnome xdotool xclip maim brightnessctl \
-    alsa-utils alsa-tools lm_sensors mpd mpc mpdris2 ncmpcpp playerctl > /dev/null 2>&1) &
-spinner
-success "Extra packages installed"
+# =======================
+# Services
+# =======================
+run_q "Enabling and starting services" \
+  "sudo systemctl enable mpd.service acpid.service NetworkManager wpa_supplicant && sudo systemctl start mpd.service acpid.service NetworkManager wpa_supplicant"
 
-# Enable and start services
-step "Enabling and starting services"
-sudo systemctl enable mpd.service acpid.service NetworkManager wpa_supplicant > /dev/null 2>&1
-sudo systemctl start mpd.service acpid.service NetworkManager wpa_supplicant > /dev/null 2>&1
-success "Services enabled and started"
+# =======================
+# Copy configs & scripts
+# =======================
+run_q "Copying configuration and scripts" \
+  "cp -r config/* \"$HOME/.config/\" && cp -r bin/* \"$HOME/.local/bin/\""
 
-# Copy configuration
-step "Copying configuration files"
-mkdir -p ~/.local/bin/
-cp -r config/* ~/.config/
-cp -r bin/* ~/.local/bin/
-success "Configuration copied"
+# =======================
+# Fonts
+# =======================
+run_q "Installing font packages (paru)" \
+  "paru -S --noconfirm ttf-jetbrains-mono-nerd ttf-font-awesome ttf-font-awesome-4 ttf-material-design-icons"
 
-# Install fonts
-step "Installing fonts"
-(paru -S --noconfirm ttf-jetbrains-mono-nerd ttf-font-awesome ttf-font-awesome-4 ttf-material-design-icons > /dev/null 2>&1) &
-spinner
-# Icomoon fonts
-sudo mkdir -p /usr/share/fonts/iconmoon
-sudo cp -r iconmoon/* /usr/share/fonts/iconmoon/
-sudo unzip -o /usr/share/fonts/iconmoon/*.zip -d /usr/share/fonts/iconmoon/ > /dev/null 2>&1
-sudo mv /usr/share/fonts/iconmoon/fonts/*.ttf /usr/share/fonts/
-sudo rm -rf /usr/share/fonts/iconmoon
-success "Fonts installed"
+# Icomoon (optional, only if folder exists)
+step "Installing Icomoon fonts (if present)"
+if compgen -G "iconmoon/*" > /dev/null; then
+  sudo mkdir -p /usr/share/fonts/iconmoon
+  sudo cp -r iconmoon/* /usr/share/fonts/iconmoon/ > /dev/null 2>&1 || true
+  # unzip any zips if they exist
+  shopt -s nullglob
+  for z in /usr/share/fonts/iconmoon/*.zip; do
+    sudo unzip -o "$z" -d /usr/share/fonts/iconmoon/ > /dev/null 2>&1 || true
+  done
+  # move TTFs up one level if present
+  if compgen -G "/usr/share/fonts/iconmoon/fonts/*.ttf" > /dev/null; then
+    sudo mv /usr/share/fonts/iconmoon/fonts/*.ttf /usr/share/fonts/ > /dev/null 2>&1 || true
+  fi
+  sudo rm -rf /usr/share/fonts/iconmoon > /dev/null 2>&1 || true
+fi
+ok "Icomoon step done"
 
-# ZSH plugins
-step "Installing ZSH plugins"
-(paru -Sy --noconfirm zsh-syntax-highlighting zsh-autosuggestions lsd bat > /dev/null 2>&1) &
-spinner
-sudo mkdir -p /usr/share/zsh/plugins/zsh-sudo/
-sudo wget -q https://raw.githubusercontent.com/hcgraf/zsh-sudo/refs/heads/master/sudo.plugin.zsh \
-    -O /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh
-success "ZSH plugins installed"
+# Hack Nerd Font
+run_q "Installing Hack Nerd Font" \
+  "sudo mkdir -p /usr/share/fonts/hack && sudo wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip -O /usr/share/fonts/hack/hack.zip && sudo unzip -o /usr/share/fonts/hack/hack.zip -d /usr/share/fonts/hack/ && sudo mv /usr/share/fonts/hack/*.ttf /usr/share/fonts/ && sudo rm -rf /usr/share/fonts/hack"
 
-# Configure keymap
-step "Configuring keymap"
-sudo localectl set-x11-keymap "$keymap"
-success "Keymap configured"
+# Iosevka Nerd Fonts (3 variants)
+run_q "Installing Iosevka Nerd Fonts (Iosevka, Term, TermSlab)" \
+  "sudo mkdir -p /usr/share/fonts/Iosevka && for font in Iosevka IosevkaTerm IosevkaTermSlab; do sudo wget -q \"https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/${font}.zip\" -O \"/usr/share/fonts/Iosevka/${font}.zip\"; done && for f in /usr/share/fonts/Iosevka/*.zip; do sudo unzip -o \"\$f\" -d /usr/share/fonts/Iosevka/ > /dev/null 2>&1; done && sudo mv /usr/share/fonts/Iosevka/*.ttf /usr/share/fonts/ && sudo rm -rf /usr/share/fonts/Iosevka"
 
+# =======================
+# ZSH plugins & extras
+# =======================
+run_q "Installing ZSH plugins (syntax highlighting, autosuggestions, lsd, bat)" \
+  "paru -S --noconfirm zsh-syntax-highlighting zsh-autosuggestions lsd bat"
+
+run_q "Installing zsh-sudo plugin" \
+  "sudo mkdir -p /usr/share/zsh/plugins/zsh-sudo && sudo wget -q https://raw.githubusercontent.com/hcgraf/zsh-sudo/refs/heads/master/sudo.plugin.zsh -O /usr/share/zsh/plugins/zsh-sudo/sudo.plugin.zsh"
+
+# =======================
+# Keymap
+# =======================
+run_q "Configuring X11 keymap" \
+  "sudo localectl set-x11-keymap \"$keymap\""
+
+# =======================
 # Powerlevel10k
-step "Installing Powerlevel10k theme"
-cd $HOME
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ./powerlevel10k > /dev/null 2>&1 || true
-sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k > /dev/null 2>&1 || true
-cd $folder
-cp user/.p10k.zsh ~/
-sudo cp root/.p10k.zsh /root/.
-success "Powerlevel10k installed"
+# =======================
+step "Installing Powerlevel10k"
+bash -c "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \"$HOME/powerlevel10k\"" > /dev/null 2>&1 || true
+bash -c "sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k" > /dev/null 2>&1 || true
+cp -f user/.p10k.zsh "$HOME"/ > /dev/null 2>&1 || true
+sudo cp -f root/.p10k.zsh /root/. > /dev/null 2>&1 || true
+ok "Powerlevel10k installed"
 
-# Profile and ZSH files
-step "Copying profile and ZSH config"
-cp user/.profile ~/
-cp user/.Xresources ~/
-cp user/.zshrc ~/
-sudo ln -sf "/home/$user/.zshrc" /root/.zshrc
-success "Profile and ZSH config copied"
+# =======================
+# Profile & ZSH files
+# =======================
+run_q "Copying profile and ZSH configs" \
+  "cp -f user/.profile \"$HOME\"/ && cp -f user/.Xresources \"$HOME\"/ && cp -f user/.zshrc \"$HOME\"/ && sudo ln -sf \"/home/$user/.zshrc\" /root/.zshrc"
 
-# Weather configuration
-step "Configuring weather"
+# =======================
+# Weather config (append)
+# =======================
+step "Writing weather settings to AwesomeWM rc.lua"
 {
-    echo "weather_city = \"${weather_city,,}\""
-    echo "weather_state = \"${weather_state,,}\""
-    echo "weather_country = \"${weather_country,,}\""
-    echo "weather_lang = \"${weather_lang,,}\""
-    echo "weather_units = \"${weather_units,,}\""
-} >> ~/.config/awesome/rc.lua
-success "Weather configured"
-
-# Enable GDM
-step "Enabling GDM"
-sudo systemctl enable gdm.service > /dev/null 2>&1
-sudo systemctl start gdm.service > /dev/null 2>&1
-success "GDM enabled"
+  echo "weather_city = \"${weather_city,,}\""
+  echo "weather_state = \"${weather_state,,}\""
+  echo "weather_country = \"${weather_country,,}\""
+  echo "weather_lang = \"${weather_lang,,}\""
+  echo "weather_units = \"${weather_units,,}\""
+} >> "$HOME/.config/awesome/rc.lua"
+ok "Weather configured"
 
 # =======================
-# Done
+# GDM
 # =======================
-echo -e "\n✅ Script finished successfully!"
+run_q "Enabling and starting GDM" \
+  "sudo systemctl enable gdm.service && sudo systemctl start gdm.service"
+
+echo -e "\n✅ All done!"
