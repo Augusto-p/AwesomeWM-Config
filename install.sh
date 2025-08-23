@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euo pipefail  # Improved error handling
+sudo cat /etc/passwd > /dev/null
 
 folder=$(pwd)
 user=$USER
@@ -48,10 +49,11 @@ sudo usermod -s /bin/zsh root
 # =======================
 # Install Lua modules
 # =======================
-sudo luarocks install lsqlite3
-sudo luarocks install luasocket
-sudo luarocks install luasec
-sudo luarocks install lua-cjson
+sudo luarocks install --force ldoc
+sudo luarocks install --force lsqlite3 0.9.5-1
+sudo luarocks install --force luasocket
+sudo luarocks install --force luasec
+sudo luarocks install --force lua-cjson
 
 # =======================
 # Install packages with paru
@@ -63,11 +65,8 @@ paru -Sy --noconfirm awesome-git picom-git kitty todo-bin feh neofetch acpi acpi
 # =======================
 # Enable and start services
 # =======================
-systemctl --user enable mpd.service
-systemctl --user start mpd.service
-
-sudo systemctl enable acpid.service NetworkManager wpa_supplicant
-sudo systemctl start acpid.service NetworkManager wpa_supplicant
+sudo systemctl enable mpd.service acpid.service NetworkManager wpa_supplicant
+sudo systemctl start mpd.service acpid.service NetworkManager wpa_supplicant
 
 # =======================
 # Copy configuration and scripts
@@ -110,7 +109,7 @@ for font in Iosevka IosevkaTerm IosevkaTermSlab; do
     sudo wget -q "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/${font}.zip" \
         -O "/usr/share/fonts/Iosevka/${font}.zip"
 done
-sudo unzip /usr/share/fonts/Iosevka/*.zip -d /usr/share/fonts/Iosevka/
+for file in /usr/share/fonts/Iosevka/*.zip; do sudo unzip "$file" -d /usr/share/fonts/Iosevka/; done
 sudo mv /usr/share/fonts/Iosevka/*.ttf /usr/share/fonts/
 sudo rm -rf /usr/share/fonts/Iosevka
 
@@ -151,3 +150,9 @@ echo "weather_state = \"${weather_state,,}\"" >> ~/.config/awesome/rc.lua
 echo "weather_country = \"${weather_country,,}\"" >> ~/.config/awesome/rc.lua
 echo "weather_lang = \"${weather_lang,,}\"" >> ~/.config/awesome/rc.lua
 echo "weather_units = \"${weather_units,,}\"" >> ~/.config/awesome/rc.lua
+
+# =======================
+# Enable and start gdm.service
+# =======================
+sudo systemctl enable gdm.service
+sudo systemctl start gdm.service
