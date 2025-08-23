@@ -99,7 +99,7 @@ sudo rm -rf /usr/share/fonts/iconmoon
 # Hack Nerd Font
 sudo mkdir -p /usr/share/fonts/hack
 sudo wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip -O /usr/share/fonts/hack/hack.zip
-sudo unzip /usr/share/fonts/hack/hack.zip -d /usr/share/fonts/hack/
+sudo unzip -o /usr/share/fonts/hack/hack.zip -d /usr/share/fonts/hack/
 sudo mv /usr/share/fonts/hack/*.ttf /usr/share/fonts/
 sudo rm -rf /usr/share/fonts/hack
 
@@ -109,7 +109,7 @@ for font in Iosevka IosevkaTerm IosevkaTermSlab; do
     sudo wget -q "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/${font}.zip" \
         -O "/usr/share/fonts/Iosevka/${font}.zip"
 done
-for file in /usr/share/fonts/Iosevka/*.zip; do sudo unzip "$file" -d /usr/share/fonts/Iosevka/; done
+for file in /usr/share/fonts/Iosevka/*.zip; do sudo unzip -o "$file" -d /usr/share/fonts/Iosevka/; done
 sudo mv /usr/share/fonts/Iosevka/*.ttf /usr/share/fonts/
 sudo rm -rf /usr/share/fonts/Iosevka
 
@@ -129,10 +129,13 @@ sudo localectl set-x11-keymap "$keymap"
 # =======================
 # Powerlevel10k
 # =======================
-cp -r user/powerlevel10k ~/.
+cd $HOME
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ./powerlevel10k
 cp user/.p10k.zsh ~/
-sudo cp -r root/powerlevel10k /root/.
-sudo cp user/.p10k.zsh /root/.
+cd /root/
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ./powerlevel10k
+sudo cp root/.p10k.zsh /root/.
+cd $folder
 
 # =======================
 # Profile and ZSH files

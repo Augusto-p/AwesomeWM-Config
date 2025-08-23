@@ -1,3 +1,5 @@
 config/awesome/theme/AwesomeIcons
 config/awesome/Awesome.DB
+user/powerlevel10k
+root/powerlevel10k
 .github_B
