@@ -115,6 +115,7 @@ slide.ended:subscribe(function()
 end)
 
 dashboard_show = function()
+    awesome.emit_signal("signal::weather")
     dashboard.visible = true
     slide:set(100)
     dashboard_status = false

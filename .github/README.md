@@ -1,6 +1,9 @@
-<!-- Screenshot -->
+
+# AwesomeWM-Config
 <div align="center">
+<a href="https://awesomewm.org/">
     <img src="https://awesomewm.org/images/awesome-logo.svg">
+    </a>
 </div>
 
 <br>
@@ -9,229 +12,121 @@
     <img src="assets/awesome.png" alt="Rice Preview">
 </div>
 
+<img alt="AwesomeWM Logo" height="160" align="left" src="assets/pfp.png">
+
+A highly personalized, lightweight, and powerful AwesomeWM configuration tailored for Arch Linux. This setup is designed to deliver a seamless, efficient, and aesthetically pleasing desktop experience, perfect for power users and minimalists alike who want full control over their window manager.
 <br>
 <br>
-
-<a href="https://awesomewm.org/"><img alt="AwesomeWM Logo" height="160" align = "left" src="https://awesomewm.org/doc/api/images/AUTOGEN_wibox_logo_logo_and_name.svg"></a>
-<b>  Aesthetic AwesomeWM Dotfiles  </b>
-
-Welcome to my AwesomeWM configuration files! 
-
-so yeah now i'm using awesomewm, looks like i'll be use this wm forever.
-
-Because only this wm can satisfy me.
-
-Fyi, I use night colorscheme, and it's so beautiful.
-
-These dotfiles are made with love, for sure.
-
-<h2></h2><br>
-
-**Here are some details about my setup:**
-
-| Programs   | Using             |
-| ---------- | ----------------- |
-| WM         | awesome           |
-| OS         | arch linux        |
-| Terminal   | kitty             |
-| Shell      | zsh               |
-| Editor     | vscode            |
-| Compositor | picom             |
-| Launcher   | custom            |
-
-<h2></h2><br>
-
-<details>
-<summary><strong>S E T U P</strong></summary>
-
-   > This is step-by-step how to install these dotfiles. Just [R.T.F.M](https://en.wikipedia.org/wiki/RTFM).
-
-   1. Install dependencies and enable services
-
-      + Dependencies
-
-      - **Arch Linux** (and all Arch-based distributions)
-
-            ```shell
-            sudo pacman -Sy luarocks networckmanager\
-            sudo luarocks lsqlite3 
-            ```
-
-
-
-            *Assuming your AUR helper is* `paru`
-
-            ```shell
-            paru -Sy awesome-git picom-git alacritty rofi todo-bin acpi acpid \
-            wireless_tools jq inotify-tools polkit-gnome xdotool xclip maim \
-            brightnessctl alsa-utils alsa-tools  lm_sensors mpd mpc \
-            mpdris2 ncmpcpp playerctl --needed 
-            ```
-
-      + Services
-
-         ```shell
-         # For automatically launching mpd on login
-         systemctl --user enable mpd.service
-         systemctl --user start mpd.service
-
-         # For charger plug/unplug events (if you have a battery)
-         sudo systemctl enable acpid.service
-         sudo systemctl start acpid.service
-         ```
-
-   2. Install needed fonts
-
-      You will need to install a few fonts (mainly icon fonts) in order for text and icons to be rendered properly.
-
-      Necessary fonts:
-      + **Iosevka**  - [here](https://github.com/ryanoasis/nerd-fonts/)
-      + **Icomoon**  - [here](https://www.dropbox.com/s/hrkub2yo9iapljz/icomoon.zip?dl=0)
-      + **Material** - [here](https://github.com/google/material-design-icons)
-
-      Once you download them and unpack them, place them into `~/.fonts` or `~/.local/share/fonts`.
-   
-   3. Install my AwesomeWM configuration files
-
-      > Clone this repository
-
-      ```shell
-      git clone https://github.com/Augusto-p/AwesomeWM-Config.git
-      cd AwesomeWM-Config
-
-      ```
-
-      > Copy config and binaries files
-
-      ```shell
-      cp -r config/* ~/.config/
-      cp -r bin/* ~/.local/bin/
-      cp -r misc/. ~/
-      ```
-
-      > You have to add `TODO_PATH` in your env variable
-
-      ```shell
-      export TODO_PATH="path/to/todo"
-      chmod 755 ~/.config/awesome/ui/dock-apps/Desktops_Manager
-      ~/.config/awesome/ui/dock-apps/Desktops_Manager "$HOME/.config/awesome/Awesome.DB" "$HOME/.config/awesome/theme/AwesomeIcons/" "$HOME/.config/awesome/theme/assets/app.svg" "Augusto-p" "AwesomeWM-Config" "Reset"
-      ```
-
-   4. Configure stuff
-
-      The relevant files are inside your `~/.config/awesome` directory.
-
-      + User preferences and default applications
-
-         In `rc.lua` there is a *Default Applications* section where user preferences and default applications are defined.
-         You should change those to your liking.
-
-         Note: For the weather widgets to work, you will also need to create an account on [openweathermap](https://openweathermap.org), get your key, look for your city ID, and set `openweathermap_key` and `openweathermap_city_id` accordingly.
-
-   5. Lastly, log out from your current desktop session and log in into AwesomeWM.
-
-</details>
-
 <br>
 
-<details>
-<summary><strong>F E A T U R E S</strong></summary>
+## Overview
 
-<b>These are the features included in my AwesomeWM setups!</b>
+This repository contains my custom AwesomeWM configuration files, designed for a clean and efficient workflow on Arch Linux. It includes a tailored setup with a variety of programs, keybindings, and a custom launcher, all optimized for productivity and aesthetics.
 
+### System Setup
 
-   + Beautiful `colorscheme` ikr, named `night` and created by [ner0z](https://github.com/ner0z)
-   + Aesthetic `Dashboard` ngl.
-   + Custom mouse-friendly `ncmpcpp` UI with album art ofc.
-      - <details>
-         <summary>Preview</summary>
+| Component   | Software          |
+|------------|-------------------|
+| **WM**     | AwesomeWM         |
+| **OS**     | Arch Linux        |
+| **Terminal** | kitty           |
+| **Shell**  | zsh               |
+| **Editor** | Visual Studio Code|
+| **Compositor** | picom         |
+| **Launcher** | Custom          |
 
-         *this is so aesthetic isn't it?*
+## Installation
 
-         <div align="left">
-         <img src="assets/ncmpcpp.png" width="500px" alt="ncmpcpp preview">
-         </div>
-         </details>
-   + `Word Clock Lockscreen` with PAM Integration
-      - <details>
+Follow these steps to install and configure the dotfiles. **R.T.F.M** (Read The Fine Manual) for a smooth setup.
 
-         *A beautiful word clock is on the lockscreen!*
+### Step 1: Install AwesomeWM Configuration Files
 
-         <summary>Preview</summary>
-         <div align="left">
-         <img src="assets/lockscreen.png" width="500px" alt="word clock lockscreen preview">
-         </div>
-         </details>
-   + Notification Center
-   + Control Panel
-   + ToDo Reminder
-   + Battery Indicator
-   + PopUp Notifications
-   + Applications Launcher
-   + Some Tooltip Widget
-   + Hardware Monitor
+1. **Clone the Repository**:
+   ```shell
+   git clone https://github.com/Augusto-p/AwesomeWM-Config.git
+   cd AwesomeWM-Config
+   ```
 
-</details>
+2. **Make the Installation Script Executable**:
+   ```shell
+   chmod +x install.sh
+   ```
 
-<br>
+3. **Run the Installation Script**:
+   ```shell
+   ./install.sh
+   ```
 
-<details>
-<summary><strong>K E Y B I N D S</strong></summary>
+### Step 2: Configure Settings
 
-I use <kbd>super</kbd> AKA Windows key as my main modifier.
-also with <kbd>alt, shift, and ctrl</kbd>
+The configuration files are located in `~/.config/awesome`. Customize the following:
 
-**Keyboard**
+- **User Preferences and Default Applications**:
+  - Edit the *Default Applications* section in `rc.lua` to set your preferred applications.
+  - For weather widgets, create an account on [OpenWeatherMap](https://openweathermap.org), obtain your API key, and set `openweathermap_key` and `openweathermap_city_id` in the configuration.
 
-| Keybind                                 | Action                                                    |
-|-----------------------------------------|-----------------------------------------------------------|
-| <kbd>super + enter</kbd>                | Spawn terminal                                            |
-| <kbd>super + w</kbd>                    | Spawn web browser                                         |
-| <kbd>super + x</kbd>                    | Spawn color picker                                        |
-| <kbd>super + f</kbd>                    | Spawn file manager                                        |
-| <kbd>super + d</kbd>                    | Launch applications launcher                              |
-| <kbd>super + shift + d</kbd>            | Toggle dashboard                                          |
-| <kbd>super + q</kbd>                    | Close client                                              |
-| <kbd>super + ctrl + l</kbd>             | Toggle lock screen                                        |
-| <kbd>super + [1-0]</kbd>                | View tag AKA change workspace (for you i3/bsp folks)      |
-| <kbd>super + shift + [1-0]</kbd>        | Move focused client to tag                                |
-| <kbd>super + space</kbd>                | Select next layout                                        |
-| <kbd>super + s</kbd>                    | Set tiling layout                                         |
-| <kbd>super + shift + s</kbd>            | Set floating layout                                       |
-| <kbd>super + c</kbd>                    | Center floating client                                    |
-| <kbd>super + [arrow keys]</kbd>         | Change focus by direction                                 |
-| <kbd>super + shift + f</kbd>            | Toggle fullscreen                                         |
-| <kbd>super + m</kbd>                    | Toggle maximize                                           |
-| <kbd>super + n</kbd>                    | Minimize                                                  |
-| <kbd>ctrl + shift + n</kbd>             | Restore minimized                                         |
-| <kbd>alt + tab</kbd>                    | Window switcher                                           |
+### Step 3: Log In
 
-<br>
+Log out of your current desktop session and select **AwesomeWM** from your display manager to start using the configuration.
 
-**Mouse on the desktop**
+## Keybindings
 
-| Mousebind          | Action                                     |
-|--------------------|--------------------------------------------|
-| `left click`       | Dismiss all notifications                  |
-| `right click`      | App drawer                                 |
-| `middle click`     | Toggle Dashboard                           |
-| `scroll up/down`   | Cycle through tags                         |
+The configuration uses the <kbd>Super</kbd> (Windows) key as the primary modifier, along with <kbd>Alt</kbd>, <kbd>Shift</kbd>, and <kbd>Ctrl</kbd>.
 
-*... And many many more! for more information check `awesome/configuration/keys.lua`*
+### Keyboard Shortcuts
 
-</details>
+| Keybind                        | Action                                              |
+|--------------------------------|-----------------------------------------------------|
+| <kbd>Super + Enter</kbd>       | Spawn terminal                                      |
+| <kbd>Super + w</kbd>           | Spawn web browser                                   |
+| <kbd>Super + x</kbd>           | Spawn color picker                                  |
+| <kbd>Super + f</kbd>           | Spawn file manager                                  |
+| <kbd>Super + d</kbd>           | Launch applications launcher                        |
+| <kbd>Super + Shift + d</kbd>   | Toggle dashboard                                    |
+| <kbd>Super + q</kbd>           | Close client                                        |
+| <kbd>Super + Ctrl + l</kbd>    | Toggle lock screen                                  |
+| <kbd>Super + [1-0]</kbd>       | Switch to workspace (tag)                           |
+| <kbd>Super + Shift + [1-0]</kbd> | Move focused client to tag                        |
+| <kbd>Super + Space</kbd>       | Select next layout                                  |
+| <kbd>Super + s</kbd>           | Set tiling layout                                   |
+| <kbd>Super + Shift + s</kbd>   | Set floating layout                                 |
+| <kbd>Super + c</kbd>           | Center floating client                              |
+| <kbd>Super + [Arrow Keys]</kbd>| Change focus by direction                           |
+| <kbd>Super + Shift + f</kbd>   | Toggle fullscreen                                   |
+| <kbd>Super + m</kbd>           | Toggle maximize                                     |
+| <kbd>Super + n</kbd>           | Minimize                                            |
+| <kbd>Ctrl + Shift + n</kbd>    | Restore minimized                                   |
+| <kbd>Alt + Tab</kbd>           | Window switcher                                     |
 
-<h2></h2><br>
+### Mouse Bindings (Desktop)
 
-**Acknowledgements**
+| Mouse Action         | Action                                     |
+|----------------------|--------------------------------------------|
+| Left Click           | Dismiss all notifications                  |
+| Right Click          | Open app drawer                            |
+| Middle Click         | Toggle dashboard                           |
+| Scroll Up/Down       | Cycle through tags                         |
 
-   - **Credits**
-      + [ner0z](https://github.com/ner0z)
+For additional keybindings, check `awesome/configuration/keys.lua`.
 
-   - **Special thanks    to**
-      + [ChocolateBread799](https://github.com/ChocolateBread799)
-      + [JavaCafe01](https://github.com/JavaCafe01)
+## Acknowledgements
 
-<h2></h2><br>
+### Credits
+- [ner0z](https://github.com/ner0z)
+- [augusto-p](https://github.com/augusto-p)
 
-<p align="center"><a href="https://github.com/rxyhn/AwesomeWM-Dotfiles/blob/main/.github/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=flat-square&label=License&message=GPL-3.0&logoColor=eceff4&logo=github&colorA=061115&colorB=67AFC1"/></a></p>
+### Special Thanks
+- [ChocolateBread799](https://github.com/ChocolateBread799)
+- [JavaCafe01](https://github.com/JavaCafe01)
+
+<!-- ## License
+
+This project is licensed under the [GPL-3.0 License](https://github.com/rxyhn/AwesomeWM-Dotfiles/blob/main/.github/LICENSE). -->
+
+---
+
+### Notes
+- Replace placeholder links (e.g., screenshots, license link) with actual links if available.
+- If you have a screenshot or demo GIF of your setup, consider adding it under the "Overview" section for visual appeal (e.g., `![Screenshot](path/to/screenshot.png)`).
+- Let me know if you want to add more sections, such as troubleshooting tips, dependencies, or a theme customization guide!
+

@@ -52,7 +52,8 @@ ruled.client.connect_signal("request::rules", function()
                 "firefox",
                 "org.gnome.Nautilus",
                 "kitty",
-                "rofi"
+                "rofi",
+                "Code"
                 
             },
             type = {

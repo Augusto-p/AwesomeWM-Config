@@ -6,4 +6,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export TODO_PATH="$HOME/Documents/todo"
 export VISUAL=nvim;
 export EDITOR=nvim;
-export SUDO_PROMPT="passwd: "
+export SUDO_PROMPT="  Authentication required – enter password: "

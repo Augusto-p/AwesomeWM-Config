@@ -21,7 +21,6 @@ local helpers = require("helpers")
 local screen_width = awful.screen.focused().geometry.width
 local screen_height = awful.screen.focused().geometry.height
 
-local Browser_App = "firefox"
 
 -- Network
 local network = require("ui.wifi-center.Network.init")
