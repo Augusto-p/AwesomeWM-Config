@@ -131,7 +131,7 @@ sudo localectl set-x11-keymap "$keymap"
 # =======================
 cd $HOME
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ./powerlevel10k
-cd /root/
+sudo cd /root/
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ./powerlevel10k
 cd $folder
 cp user/.p10k.zsh ~/
