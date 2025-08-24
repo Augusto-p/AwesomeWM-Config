@@ -3,3 +3,4 @@ config/awesome/Awesome.DB
 user/powerlevel10k
 root/powerlevel10k
 .github_B
+install2.sh
