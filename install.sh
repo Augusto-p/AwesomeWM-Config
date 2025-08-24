@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-sudo cat /etc/passwd 
+sudo cat /etc/passwd > /dev/null
 folder=$(pwd)
 user=$USER
 
